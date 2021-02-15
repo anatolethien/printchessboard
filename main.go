@@ -14,15 +14,19 @@ func main() {
 
 	var length, width = atoi(os.Args[1]), atoi(os.Args[2])
 
-	var white string = " "
-	var black string = "#"
-	var newLine string = "\n"
+	var white = " "
+	var black = "#"
+	var newLine = "\n"
 
-	fmt.Printf("Length: %d\nWidth: %d\n", length, width)
-
-	var prev = white
+	var prev = black
 
 	for i := 1; i <= width; i++ {
+
+		if prev == white {
+			prev = black
+		} else if prev == black {
+			prev = white
+		}
 
 		for j := 1; j <= length; j++ {
 
