@@ -7,12 +7,12 @@ import (
 
 func main() {
 
-	if argsCheck(os.Args) == false {
-		fmt.Println("Error")
+	if argsValid(os.Args) == false {
+		PrintStr("Error")
 		return
 	}
 
-	var length, width = atoi(os.Args[1]), atoi(os.Args[2])
+	var length, width = Atoi(os.Args[1]), Atoi(os.Args[2])
 
 	var white = " "
 	var black = "#"
@@ -45,24 +45,24 @@ func main() {
 
 }
 
-func argsCheck(args []string) bool {
+func argsValid(args []string) bool {
 
 	if len(args) != 3 {
 		return false
 	}
 
-	if atoi(args[1]) < 1 {
+	if Atoi(args[1]) < 1 {
 		return false
 	}
 
-	if atoi(args[2]) < 1 {
+	if Atoi(args[2]) < 1 {
 		return false
 	}
 
 	return true
 }
 
-func atoi(s string) int {
+func Atoi(s string) int {
 
 	var f = false
 	var signCount, str = 0, 0
@@ -105,4 +105,10 @@ func atoi(s string) int {
 	}
 
 	return str
+}
+
+func PrintStr(s string) {
+	for _, v:= range s {
+		fmt.Print(v)
+	}
 }
